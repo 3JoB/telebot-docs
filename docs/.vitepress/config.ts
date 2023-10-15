@@ -88,13 +88,6 @@ export default {
     socialLinks: [
       { icon: 'github', link: 'https://github.com/3JoB/telebot' },
     ],
-    lastUpdated: {
-      text: 'Updated at',
-      formatOptions: {
-        dateStyle: 'full',
-        timeStyle: 'medium'
-      }
-    },
     footer: {
       message: "Released under the MIT License.",
       copyright: "No Copyright | Just follow the MIT license.",

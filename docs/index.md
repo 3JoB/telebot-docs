@@ -1,38 +1,43 @@
 ---
+
 layout: home
 
 # Hero section
+
 hero:
-  name: TelebotE 2
-  text: Launch Telegram Bot now.
-  image:
-    src: /telebot.webp
-    alt: Telebot E logo
+name: TelebotE 2
+text: Launch Telegram Bot now.
+image:
+  src: /telebot.webp
+  alt: Telebot E logo
   tagline: Focused and swift, fingers dance on keys, coding flows free.
-  actions:
-    - theme: brand
-      text: Get Started
-      link: /guide/
-    - theme: alt
-      text: View on GitHub
-      link: https://github.com/3JoB/telebot
+actions:
+  - theme: brand
+    text: Get Started
+    link: /guide/ 
+  - theme: alt
+    text: View on GitHub
+    link: https://github.com/3JoB/telebot
 
 # Features section
-features:
-  - icon: ⚡️
-    title: Control
-    details: empty
-  - icon: 🎉
-    title: Fastest update
-    details: empty
-  - icon: 🔥
-    title: No more advantages
-    details: empty
-  - icon: 🎀
-    title: I really don’t know how to write it…
-    details: empty
 
-----
+features:
+
+- icon: ⚡️
+  title: Control
+  details: empty
+- icon: 🎉
+  title: Fastest update
+  details: empty
+- icon: 🔥
+  title: No more advantages
+  details: empty
+- icon: 🎀
+  title: I really don’t know how to write it…
+  details: empty
+
+---
+
 <style>
 :root {
   --vp-home-hero-name-color: transparent;
