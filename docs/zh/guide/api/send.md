@@ -1,11 +1,11 @@
 ---
-title: 发送
+title: Sendable
 page: doc
 ---
 
 # Sendable
 
-Send无疑是Telebot中最重要的方法。 `Send()` 接受一个收件人(可以是用户,组或频道)和一个可发送对象。 除了Telebot提供的媒体类型(照片、音频、视频等)之外的其他类型都是可发送的。 如果您创建自己的复合类型，并且它们满足Sendable接口，Telebot将能够将它们发送出去。
+Send無疑是Telebot中最重要的方法。 `Send()` 接受一個收件人(可以是用戶,組或頻道)和一個可發送對象。除了Telebot提供的媒體類型(照片、音頻、視頻等)之外的其他類型都是可發送的。如果您創建自己的複合類型，並且它們滿足Sendable接口，Telebot將能夠將它們發送出去。
 
 ```go
 // Sendable is any object that can send itself.
@@ -18,7 +18,7 @@ type Sendable interface {
 }
 ```
 
-当时唯一不适合`Send()`的类型是Album，这是有原因的。 `Album`是不久前添加的，因此出于向后兼容性的考虑，它们有点奇怪。 事实上，可以发送，但从未收到。 相反，Telegram 返回一条 `[]Message`，对应相册中的每个媒体对象:
+當時唯一不適合`Send()`的類型是Album，這是有原因的。 `Album`是不久前添加的，因此出於向後兼容性的考慮，它們有點奇怪。事實上，可以發送，但從未收到。相反，Telegram 返回一條 `[]Message`，對應相冊中的每個媒體對象:
 ```go
 p := &tele.Photo{File: tele.FromDisk("chicken.jpg")}
 v := &tele.Video{File: tele.FromURL("http://video.mp4")}
@@ -26,9 +26,10 @@ v := &tele.Video{File: tele.FromURL("http://video.mp4")}
 msgs, err := b.SendAlbum(user, tele.Album{p, v})
 ```
 
-# 发送选项
+# SendOption
 
-发送选项是您可以作为可选参数传递给 和 朋友的对象和标志（在收件人和文本/媒体之后）。 最重要的一个叫做 ，它可以让你控制 Telegram 支持的消息的所有属性。 唯一的缺点是有时使用起来比较不方便，所以支持多种简写: `Send()` `Edit()` `SendOptionsSend()`
+發送選項是您可以傳遞給`Send()`，`Edit()`和朋友作為可選參數的對象和標誌（遵循收件人和文本/媒體）。 最重要的是稱為`SendOptionsSend()`，它使您可以控制電報支持的消息的所有屬性。 唯一的缺點是有時使用的不便，因此Send支持多個速記:
+
 ```go
 // regular send options
 b.Send(user, "text", &tele.SendOptions{
@@ -45,4 +46,4 @@ b.Send(user, "text", &tele.ReplyMarkup{
 b.Send(user, "text", tele.Silent, tele.NoPreview)
 ```
 
-您可以在[此处](https://pkg.go.dev/github.com/3JoB/telebot/v2#Option)找到支持的选项标志的完整列表。
+您可以在[此處](https://pkg.go.dev/github.com/3JoB/telebot/v2#Option)找到支持的選項標誌的完整列表。

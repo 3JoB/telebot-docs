@@ -1,4 +1,4 @@
 ---
-title: 网络
+title: сеть
 layout: doc
 ---

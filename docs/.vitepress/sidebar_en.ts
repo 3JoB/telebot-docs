@@ -53,6 +53,7 @@ function interfaces(): DefaultTheme.SidebarItem[] {
         { text: 'Logger', link: 'logger' },
         { text: 'Json', link: 'json' },
         { text: 'Network', link: 'network' },
+        { text: 'Poller', link: 'poller'},
       ]
     },
   ]

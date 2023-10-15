@@ -1,11 +1,11 @@
 ---
-title: 键盘
+title: Keyboards
 layout: doc
 ---
 
-# 键盘
+# Keyboards
 
-Telebot支持由Telegram提供的两种键盘: 回复和内联键盘。任何按钮也可以充当 `Handle()` 的端点。
+Telebot supports both kinds of keyboards Telegram provides: reply and inline keyboards. Any button can also act as endpoints for `Handle()`.
 
 ```go
 var (
@@ -54,7 +54,7 @@ b.Handle(&btnPrev, func(c *tele.Context) error {
 })
 ```
 
-您可以对每种可能的按钮类型使用标记构造函数:
+You can use markup constructor for every type of possible button:
 
 ```go
 r := b.NewMarkup()

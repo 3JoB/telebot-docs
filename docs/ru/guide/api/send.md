@@ -1,11 +1,11 @@
 ---
-title: 发送
+title: Sendable
 page: doc
 ---
 
 # Sendable
 
-Send无疑是Telebot中最重要的方法。 `Send()` 接受一个收件人(可以是用户,组或频道)和一个可发送对象。 除了Telebot提供的媒体类型(照片、音频、视频等)之外的其他类型都是可发送的。 如果您创建自己的复合类型，并且它们满足Sendable接口，Telebot将能够将它们发送出去。
+Send is undoubtedly the most important method in Telebot. `Send()` accepts a recipient (which can be a user, group or channel) and a sendable object. In addition to the media types provided by Telebot (photos, audio, videos, etc.), other types can be sent. If you create your own composite types, and they satisfy the Sendable interface, Telebot will be able to send them out.
 
 ```go
 // Sendable is any object that can send itself.
@@ -18,7 +18,8 @@ type Sendable interface {
 }
 ```
 
-当时唯一不适合`Send()`的类型是Album，这是有原因的。 `Album`是不久前添加的，因此出于向后兼容性的考虑，它们有点奇怪。 事实上，可以发送，但从未收到。 相反，Telegram 返回一条 `[]Message`，对应相册中的每个媒体对象:
+The only type that wasn't suitable for `Send()` at the time was Album, and there was a reason for that. `Album` was added a while ago, so they are a bit odd for backwards compatibility reasons. In fact, it can be sent but never received. Instead, Telegram returns a `[]Message` for each media object in the album:
+
 ```go
 p := &tele.Photo{File: tele.FromDisk("chicken.jpg")}
 v := &tele.Video{File: tele.FromURL("http://video.mp4")}
@@ -26,9 +27,10 @@ v := &tele.Video{File: tele.FromURL("http://video.mp4")}
 msgs, err := b.SendAlbum(user, tele.Album{p, v})
 ```
 
-# 发送选项
+# SendOptions
 
-发送选项是您可以作为可选参数传递给 和 朋友的对象和标志（在收件人和文本/媒体之后）。 最重要的一个叫做 ，它可以让你控制 Telegram 支持的消息的所有属性。 唯一的缺点是有时使用起来比较不方便，所以支持多种简写: `Send()` `Edit()` `SendOptionsSend()`
+Send options are objects and flags you can pass to `Send()`, `Edit()` and friends as optional arguments (following the recipient and the text/media). The most important one is called `SendOptions`, it lets you control all the properties of the message supported by Telegram. The only drawback is that it's rather inconvenient to use at times, so `Send()` supports multiple shorthands:
+
 ```go
 // regular send options
 b.Send(user, "text", &tele.SendOptions{
@@ -45,4 +47,4 @@ b.Send(user, "text", &tele.ReplyMarkup{
 b.Send(user, "text", tele.Silent, tele.NoPreview)
 ```
 
-您可以在[此处](https://pkg.go.dev/github.com/3JoB/telebot/v2#Option)找到支持的选项标志的完整列表。
+Full list of supported option-flags you can find [here](https://pkg.go.dev/github.com/3JoB/telebot/v2#Option).

@@ -1,11 +1,11 @@
 ---
-title: 内联模式
+title: Inline Mode
 layout: doc
 ---
 
-# 内联模式
+# Inline Mode
 
-因此，如果要处理传入的内联查询，最好插入终结点，然后使用该方法发送内联查询列表 返回。我认为在撰写本文时，Telebot 支持所有提供的结果 类型（但不是缓存的类型）。这是它的样子：tele.OnQueryAnswer()
+So if you want to handle incoming inline queries you better plug the `tele.OnQuery` endpoint and then use the `Answer()` method to send a list of inline queries back. I think at the time of writing, Telebot supports all of the provided result types (but not the cached ones). This is what it looks like:
 
 ```go
 b.Handle(tele.OnQuery, func(c *tele.Context) error {
@@ -33,4 +33,4 @@ b.Handle(tele.OnQuery, func(c *tele.Context) error {
 })
 ```
 
-真的没什么好谈的。它还支持某种形式的身份验证通过深度链接。为此，请使用字段和 .`SwitchPMText` `SwitchPMParameter` `QueryResponse`
+There's not much to talk about really. It also supports some form of authentication through deep-linking. For that, use fields `SwitchPMText` and `SwitchPMParameter` of `QueryResponse`.

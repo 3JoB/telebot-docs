@@ -1,12 +1,10 @@
 ---
-title: 编辑
+title: Editable
 page: doc
 ---
 
-# 编辑
-如果您想编辑某些现有消息，则实际上不需要存储原始对象。 事实上，编辑后，Telegram 只需要和。所以你并不真正需要整个消息。
-
-另外，您可能希望在数据库中存储对某些消息的引用，因此我认为任何Go结构都可以作为 Telegram 消息进行编辑，以实现:`*Message` `chat_id` `message_id` `Editable`
+# Editable
+If you want to edit some existing message, you don't really need to store the original `*Message` object. In fact, upon edit, Telegram only requires `chat_id` and `message_id`. So you don't really need the Message as a whole. Also, you might want to store references to certain messages in the database, so I thought it made sense for any Go struct to be editable as a Telegram message, to implement `Editable`:
 
 ```go
 // Editable is an interface for all objects that
@@ -26,7 +24,8 @@ type Editable interface {
 }
 ```
 
-例如，类型为可编辑。以下是Telebot提供的type实现:
+For example, `Message` type is Editable. Here is the implementation of `StoredMessage` type, provided by Telebot:
+
 ```go
 // StoredMessage is an example struct suitable for being
 // stored in the database as-is or being embedded into
@@ -41,7 +40,9 @@ func (x StoredMessage) MessageSig() (int, int64) {
 	return x.MessageID, x.ChatID
 }
 ```
-何必呢？好吧，它允许您执行以下操作:
+
+Why bother at all? Well, it allows you to do things like this:
+
 ```go
 // just two integer columns in the database
 var msgs []tele.StoredMessage
@@ -54,7 +55,8 @@ for _, msg := range msgs {
 }
 ```
 
-我发现它非常整洁。 值得注意的是，此时Edit系列中还存在另一种方法，这种方法的用途相当罕见，因此我没有费心将其包含到其中，就像我所做的那样，因为它不可避免地会导致不必要的复杂化。`EditCaption()` `Edit()` `SendAlbum()`
+I find it incredibly neat. Worth noting, at this point of time there exists another method in the Edit family, `EditCaption()` which is of a pretty rare use, so I didn't bother including it to `Edit()`, just like I did with `SendAlbum()` as it would inevitably lead to unnecessary complications.
+
 ```go
 var m *Message
 

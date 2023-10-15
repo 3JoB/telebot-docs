@@ -1,11 +1,11 @@
 ---
-title: 内联模式
+title: 內聯模式
 layout: doc
 ---
 
-# 内联模式
+# 內聯模式
 
-因此，如果要处理传入的内联查询，最好插入终结点，然后使用该方法发送内联查询列表 返回。我认为在撰写本文时，Telebot 支持所有提供的结果 类型（但不是缓存的类型）。这是它的样子：tele.OnQueryAnswer()
+因此，如果要處理傳入的內聯查詢，則更好地插入`tele.OnQuery`端點，然後使用`Answer()`方法將inline查詢列表發送回來。 我認為在撰寫本文時，Telebot支持所有提供的結果類型(但不能緩存)。 這就是它的樣子:
 
 ```go
 b.Handle(tele.OnQuery, func(c *tele.Context) error {
@@ -33,4 +33,4 @@ b.Handle(tele.OnQuery, func(c *tele.Context) error {
 })
 ```
 
-真的没什么好谈的。它还支持某种形式的身份验证通过深度链接。为此，请使用字段和 .`SwitchPMText` `SwitchPMParameter` `QueryResponse`
+真的沒有什麼可談論的。 它還通過深鏈接來支持某種形式的身份驗證。 為此，使用`QueryResponse`的字段`SwitchPMText`和`SwitchPMParameter`。

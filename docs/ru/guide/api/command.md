@@ -1,20 +1,23 @@
 ---
-title: 命令
+title: команда
 layout: doc
 ---
 
-# 命令
+# команда
 
-处理命令时，Telebot 支持直接 (`/command`) 和类组语法 (`/command@botname`)，并且永远不会向其他机器人传递消息，即使[隐私模式](https://core.telegram.org/bots#privacy-mode)关闭也是如此。
+When handling commands, Telebot supports both direct (`/command`) and group-like syntax (`/command@botname`) and will never deliver messages addressed to some other bot, even if [privacy mode](https://core.telegram.org/bots#privacy-mode) is off.
 
-为了简化深度链接，Telebot 还提取有效负载:
+For simplified deep-linking, Telebot also extracts payload:
+
 ```go
 // Command: /start <PAYLOAD>
 b.Handle("/start", func(c *tele.Context) error {
 	fmt.Println(c.Message().Payload) // <PAYLOAD>
 })
 ```
-对于多个参数，请使用:
+
+For multiple arguments use:
+
 ```go
 // Command: /tags <tag1> <tag2> <...>
 b.Handle("/tags", func(c *tele.Context) error {
@@ -25,7 +28,7 @@ b.Handle("/tags", func(c *tele.Context) error {
 })
 ```
 
-TelebotE的命令处理直接处理字符串，而不是Telebot的经典正则处理，这样能大幅提升性能，并且payload也可以传回换行后的内容。
+TelebotE's new command processing directly processes strings instead of using regular expressions, which can greatly improve performance, and the payload can also return newline content.
 
 ## Benchmark
 ```

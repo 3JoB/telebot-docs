@@ -1,9 +1,9 @@
 ---
-title: 日志
+title: 紀錄
 layout: doc
 ---
 
-# 日志
+# 紀錄
 
 The idea of Logger comes from https://github.com/tucnak/telebot/issues/619.
 

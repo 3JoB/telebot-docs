@@ -1,13 +1,13 @@
 ---
-title: 中间件
+title: 中介軟體
 layout: doc
 ---
 
-# 中间件
+# 中介軟體
 
-Telebot 有一种简单且可识别的方式来设置中间件 - 可以访问的链式函数，在处理程序执行之前调用 `Context`。
+Telebot 有一種簡單且可識別的方式來設置中介軟體 - 可以訪問的鍊式函數，在處理程序執行之前調用 `Context`。
 
-导入 `middleware` 包以获得一些基本的开箱即用的中间件实现:
+導入 `middleware` 包以獲得一些基本的開箱即用的中介軟體實現:
 
 ```go
 import "github.com/3JoB/telebot/v2/middleware"
@@ -28,7 +28,7 @@ adminOnly.Handle("/kick", onKick)
 b.Handle(tele.OnText, onText, middleware.IgnoreVia())
 ```
 
-自定义中间件示例:
+自定義中介軟體示例:
 ```go
 // AutoResponder automatically responds to every callback update.
 func AutoResponder(c *tele.Context) error {
@@ -39,7 +39,7 @@ func AutoResponder(c *tele.Context) error {
 }
 ```
 
-`c.Next()` 可以使中间件减少嵌套返回，如下:
+`c.Next()` 可以使中介軟體减少嵌套返回:
 
 Telebot:
 ```go
@@ -69,6 +69,6 @@ func AutoRespond(c *telebot.Context) error {
 }
 ```
 
-怎么样，没有那么多的嵌套返回，看起来是不是很简洁?
+怎麼樣，沒有那麼多的嵌套返回，看起來是不是很簡潔?
 
-提示一下，每个组，最好在中间件全部导入后再导入处理程序，否则后面的中间件将会丢失，我会在未来解决这个问题。
+提示一下，每個組，最好在中介軟體全部導入後再導入處理程序，否則後面的中介軟體將會丟失，我會在未來解決這個問題。

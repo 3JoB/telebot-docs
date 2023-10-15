@@ -53,6 +53,7 @@ function interfaces(): DefaultTheme.SidebarItem[] {
         { text: '紀錄', link: 'logger' },
         { text: 'Json', link: 'json' },
         { text: '網路', link: 'network' },
+        { text: 'Poller', link: 'poller' },
       ]
     },
   ]

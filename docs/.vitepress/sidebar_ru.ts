@@ -53,6 +53,7 @@ function interfaces(): DefaultTheme.SidebarItem[] {
                 { text: 'бревно', link: 'logger' },
                 { text: 'Json', link: 'json' },
                 { text: 'сеть', link: 'network' },
+                { text: 'Poller', link: 'poller' },
             ]
         },
     ]

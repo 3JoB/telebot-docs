@@ -1,28 +1,24 @@
 ---
-
 layout: home
 
 # Hero section
-
 hero:
-name: TelebotE 2
-text: Launch Telegram Bot now.
-image:
-  src: /telebot.webp
-  alt: Telebot E logo
+  name: TelebotE 2
+  text: Launch Telegram Bot now.
+  image:
+    src: /telebot.webp
+    alt: Telebot E logo
   tagline: Focused and swift, fingers dance on keys, coding flows free.
-actions:
-  - theme: brand
-    text: Get Started
-    link: /guide/ 
-  - theme: alt
-    text: View on GitHub
-    link: https://github.com/3JoB/telebot
+  actions:
+    - theme: brand
+      text: Get Started
+      link: /guide/ 
+    - theme: alt
+      text: View on GitHub
+      link: https://github.com/3JoB/telebot
 
 # Features section
-
 features:
-
 - icon: ⚡️
   title: Control
   details: empty

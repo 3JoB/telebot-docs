@@ -4,15 +4,13 @@ layout: doc
 ---
 
 # 文件
-**文件的下载方法目前仍然处于一个混乱的状态。**
-
->BotAPI仅允许下载最大50MB和上传20MB的文件。
+>BotAPI僅允許下載最大50MB和上傳20MB的文件。
 >
->虽然可以使用自定义BotAPI服务器来解除这一限制，但我并不推荐，如果你要从BotAPI外部访问文件的话。
+>雖然可以使用自定義BotAPI伺服器來解除這一限制，但我並不推薦，如果你要從BotAPI外部訪問文件的話。
 
-Telebot允许上传(从磁盘或通过URL)和下载(从Telegram) 机器人范围内的文件。此外，发送任何类型的媒体并创建的文件会自动将文件从磁盘上传到Telegram。
+Telebot允許上傳(從磁盤或通過URL)和下載(從Telegram) 機器人范圍內的文件。此外，發送任何類型的媒體並創建的文件會自動將文件從磁盤上傳到Telegram。
 
-### 上传
+### 上傳
 ```go
 a := &tele.Audio{File: tele.FromDisk("file.ogg")}
 
@@ -31,8 +29,7 @@ fmt.Println(a.InCloud()) // true
 fmt.Println(a.FileID) // <Telegram file ID>
 ```
 
-### 下载
-目前下载方法会直接将文件保留到系统缓存目录并在所指定的位置创建一个软链接，这是受限于糟糕的io.Reader接口而创建的糟糕的方法，会在将来更改行为。
+### 下載
 ```go
 b.Download(c.Message().Document, "doc.txt")
 ```

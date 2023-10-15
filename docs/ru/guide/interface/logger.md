@@ -1,9 +1,9 @@
 ---
-title: 日志
+title: бревно
 layout: doc
 ---
 
-# 日志
+# бревно
 
 The idea of Logger comes from https://github.com/tucnak/telebot/issues/619.
 
