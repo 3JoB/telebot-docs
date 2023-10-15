@@ -1,1 +1,0 @@
-import{d as t,Z as a,j as o,c as n,o as s}from"./chunks/framework.31184730.js";const _=JSON.parse('{"title":"","description":"","frontmatter":{"layout":"page"},"headers":[],"relativePath":"zh.md","filePath":"zh.md","lastUpdated":null}'),r={name:"zh.md"},m=t({...r,setup(d){let{go:e}=a();return o(()=>{e("/zh/")}),(l,c)=>(s(),n("div"))}});export{_ as __pageData,m as default};
