@@ -1,0 +1,115 @@
+import{_ as s,c as n,o as a,Q as l}from"./chunks/framework.31184730.js";const q=JSON.parse('{"title":"键盘","description":"","frontmatter":{"title":"键盘","layout":"doc"},"headers":[],"relativePath":"zh/guide/api/keyboards.md","filePath":"zh/guide/api/keyboards.md","lastUpdated":null}'),p={name:"zh/guide/api/keyboards.md"},o=l(`<h1 id="键盘" tabindex="-1">键盘 <a class="header-anchor" href="#键盘" aria-label="Permalink to &quot;键盘&quot;">​</a></h1><p>Telebot支持由Telegram提供的两种键盘: 回复和内联键盘。任何按钮也可以充当 <code>Handle()</code> 的端点。</p><div class="language-go vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">go</span><pre class="shiki github-dark vp-code-dark"><code><span class="line"><span style="color:#F97583;">var</span><span style="color:#E1E4E8;"> (</span></span>
+<span class="line"><span style="color:#E1E4E8;">	</span><span style="color:#6A737D;">// Universal markup builders.</span></span>
+<span class="line"><span style="color:#E1E4E8;">	menu     </span><span style="color:#F97583;">=</span><span style="color:#E1E4E8;"> </span><span style="color:#F97583;">&amp;</span><span style="color:#E1E4E8;">tele.ReplyMarkup{ResizeKeyboard: </span><span style="color:#79B8FF;">true</span><span style="color:#E1E4E8;">}</span></span>
+<span class="line"><span style="color:#E1E4E8;">	selector </span><span style="color:#F97583;">=</span><span style="color:#E1E4E8;"> </span><span style="color:#F97583;">&amp;</span><span style="color:#E1E4E8;">tele.ReplyMarkup{}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8;">	</span><span style="color:#6A737D;">// Reply buttons.</span></span>
+<span class="line"><span style="color:#E1E4E8;">	btnHelp     </span><span style="color:#F97583;">=</span><span style="color:#E1E4E8;"> menu.</span><span style="color:#79B8FF;">Text</span><span style="color:#E1E4E8;">(</span><span style="color:#9ECBFF;">&quot;ℹ Help&quot;</span><span style="color:#E1E4E8;">)</span></span>
+<span class="line"><span style="color:#E1E4E8;">	btnSettings </span><span style="color:#F97583;">=</span><span style="color:#E1E4E8;"> menu.</span><span style="color:#79B8FF;">Text</span><span style="color:#E1E4E8;">(</span><span style="color:#9ECBFF;">&quot;⚙ Settings&quot;</span><span style="color:#E1E4E8;">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8;">	</span><span style="color:#6A737D;">// Inline buttons.</span></span>
+<span class="line"><span style="color:#E1E4E8;">	</span><span style="color:#6A737D;">//</span></span>
+<span class="line"><span style="color:#E1E4E8;">	</span><span style="color:#6A737D;">// Pressing it will cause the client to</span></span>
+<span class="line"><span style="color:#E1E4E8;">	</span><span style="color:#6A737D;">// send the bot a callback.</span></span>
+<span class="line"><span style="color:#E1E4E8;">	</span><span style="color:#6A737D;">//</span></span>
+<span class="line"><span style="color:#E1E4E8;">	</span><span style="color:#6A737D;">// Make sure Unique stays unique as per button kind</span></span>
+<span class="line"><span style="color:#E1E4E8;">	</span><span style="color:#6A737D;">// since it&#39;s required for callback routing to work.</span></span>
+<span class="line"><span style="color:#E1E4E8;">	</span><span style="color:#6A737D;">//</span></span>
+<span class="line"><span style="color:#E1E4E8;">	btnPrev </span><span style="color:#F97583;">=</span><span style="color:#E1E4E8;"> selector.</span><span style="color:#79B8FF;">Data</span><span style="color:#E1E4E8;">(</span><span style="color:#9ECBFF;">&quot;⬅&quot;</span><span style="color:#E1E4E8;">, </span><span style="color:#9ECBFF;">&quot;prev&quot;</span><span style="color:#E1E4E8;">, </span><span style="color:#F97583;">...</span><span style="color:#E1E4E8;">)</span></span>
+<span class="line"><span style="color:#E1E4E8;">	btnNext </span><span style="color:#F97583;">=</span><span style="color:#E1E4E8;"> selector.</span><span style="color:#79B8FF;">Data</span><span style="color:#E1E4E8;">(</span><span style="color:#9ECBFF;">&quot;➡&quot;</span><span style="color:#E1E4E8;">, </span><span style="color:#9ECBFF;">&quot;next&quot;</span><span style="color:#E1E4E8;">, </span><span style="color:#F97583;">...</span><span style="color:#E1E4E8;">)</span></span>
+<span class="line"><span style="color:#E1E4E8;">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8;">menu.</span><span style="color:#79B8FF;">Reply</span><span style="color:#E1E4E8;">(</span></span>
+<span class="line"><span style="color:#E1E4E8;">	menu.</span><span style="color:#79B8FF;">Row</span><span style="color:#E1E4E8;">(btnHelp),</span></span>
+<span class="line"><span style="color:#E1E4E8;">	menu.</span><span style="color:#79B8FF;">Row</span><span style="color:#E1E4E8;">(btnSettings),</span></span>
+<span class="line"><span style="color:#E1E4E8;">)</span></span>
+<span class="line"><span style="color:#E1E4E8;">selector.</span><span style="color:#79B8FF;">Inline</span><span style="color:#E1E4E8;">(</span></span>
+<span class="line"><span style="color:#E1E4E8;">	selector.</span><span style="color:#79B8FF;">Row</span><span style="color:#E1E4E8;">(btnPrev, btnNext),</span></span>
+<span class="line"><span style="color:#E1E4E8;">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8;">b.</span><span style="color:#79B8FF;">Handle</span><span style="color:#E1E4E8;">(</span><span style="color:#9ECBFF;">&quot;/start&quot;</span><span style="color:#E1E4E8;">, </span><span style="color:#F97583;">func</span><span style="color:#E1E4E8;">(c </span><span style="color:#F97583;">*</span><span style="color:#E1E4E8;">tele.Context) </span><span style="color:#F97583;">error</span><span style="color:#E1E4E8;"> {</span></span>
+<span class="line"><span style="color:#E1E4E8;">	_, err </span><span style="color:#F97583;">:=</span><span style="color:#E1E4E8;"> c.</span><span style="color:#79B8FF;">Send</span><span style="color:#E1E4E8;">(</span><span style="color:#9ECBFF;">&quot;Hello!&quot;</span><span style="color:#E1E4E8;">, menu)</span></span>
+<span class="line"><span style="color:#E1E4E8;">    </span><span style="color:#F97583;">return</span><span style="color:#E1E4E8;"> err</span></span>
+<span class="line"><span style="color:#E1E4E8;">})</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;">// On reply button pressed (message)</span></span>
+<span class="line"><span style="color:#E1E4E8;">b.</span><span style="color:#79B8FF;">Handle</span><span style="color:#E1E4E8;">(</span><span style="color:#F97583;">&amp;</span><span style="color:#E1E4E8;">btnHelp, </span><span style="color:#F97583;">func</span><span style="color:#E1E4E8;">(c </span><span style="color:#F97583;">*</span><span style="color:#E1E4E8;">tele.Context) </span><span style="color:#F97583;">error</span><span style="color:#E1E4E8;"> {</span></span>
+<span class="line"><span style="color:#E1E4E8;">	_, err </span><span style="color:#F97583;">:=</span><span style="color:#E1E4E8;"> c.</span><span style="color:#79B8FF;">Edit</span><span style="color:#E1E4E8;">(</span><span style="color:#9ECBFF;">&quot;Here is some help: ...&quot;</span><span style="color:#E1E4E8;">)</span></span>
+<span class="line"><span style="color:#E1E4E8;">    </span><span style="color:#F97583;">return</span><span style="color:#E1E4E8;"> err</span></span>
+<span class="line"><span style="color:#E1E4E8;">})</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;">// On inline button pressed (callback)</span></span>
+<span class="line"><span style="color:#E1E4E8;">b.</span><span style="color:#79B8FF;">Handle</span><span style="color:#E1E4E8;">(</span><span style="color:#F97583;">&amp;</span><span style="color:#E1E4E8;">btnPrev, </span><span style="color:#F97583;">func</span><span style="color:#E1E4E8;">(c </span><span style="color:#F97583;">*</span><span style="color:#E1E4E8;">tele.Context) </span><span style="color:#F97583;">error</span><span style="color:#E1E4E8;"> {</span></span>
+<span class="line"><span style="color:#E1E4E8;">	</span><span style="color:#F97583;">return</span><span style="color:#E1E4E8;"> c.</span><span style="color:#79B8FF;">Respond</span><span style="color:#E1E4E8;">()</span></span>
+<span class="line"><span style="color:#E1E4E8;">})</span></span></code></pre><pre class="shiki github-light vp-code-light"><code><span class="line"><span style="color:#D73A49;">var</span><span style="color:#24292E;"> (</span></span>
+<span class="line"><span style="color:#24292E;">	</span><span style="color:#6A737D;">// Universal markup builders.</span></span>
+<span class="line"><span style="color:#24292E;">	menu     </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> </span><span style="color:#D73A49;">&amp;</span><span style="color:#24292E;">tele.ReplyMarkup{ResizeKeyboard: </span><span style="color:#005CC5;">true</span><span style="color:#24292E;">}</span></span>
+<span class="line"><span style="color:#24292E;">	selector </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> </span><span style="color:#D73A49;">&amp;</span><span style="color:#24292E;">tele.ReplyMarkup{}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;">	</span><span style="color:#6A737D;">// Reply buttons.</span></span>
+<span class="line"><span style="color:#24292E;">	btnHelp     </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> menu.</span><span style="color:#005CC5;">Text</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;ℹ Help&quot;</span><span style="color:#24292E;">)</span></span>
+<span class="line"><span style="color:#24292E;">	btnSettings </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> menu.</span><span style="color:#005CC5;">Text</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;⚙ Settings&quot;</span><span style="color:#24292E;">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;">	</span><span style="color:#6A737D;">// Inline buttons.</span></span>
+<span class="line"><span style="color:#24292E;">	</span><span style="color:#6A737D;">//</span></span>
+<span class="line"><span style="color:#24292E;">	</span><span style="color:#6A737D;">// Pressing it will cause the client to</span></span>
+<span class="line"><span style="color:#24292E;">	</span><span style="color:#6A737D;">// send the bot a callback.</span></span>
+<span class="line"><span style="color:#24292E;">	</span><span style="color:#6A737D;">//</span></span>
+<span class="line"><span style="color:#24292E;">	</span><span style="color:#6A737D;">// Make sure Unique stays unique as per button kind</span></span>
+<span class="line"><span style="color:#24292E;">	</span><span style="color:#6A737D;">// since it&#39;s required for callback routing to work.</span></span>
+<span class="line"><span style="color:#24292E;">	</span><span style="color:#6A737D;">//</span></span>
+<span class="line"><span style="color:#24292E;">	btnPrev </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> selector.</span><span style="color:#005CC5;">Data</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;⬅&quot;</span><span style="color:#24292E;">, </span><span style="color:#032F62;">&quot;prev&quot;</span><span style="color:#24292E;">, </span><span style="color:#D73A49;">...</span><span style="color:#24292E;">)</span></span>
+<span class="line"><span style="color:#24292E;">	btnNext </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> selector.</span><span style="color:#005CC5;">Data</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;➡&quot;</span><span style="color:#24292E;">, </span><span style="color:#032F62;">&quot;next&quot;</span><span style="color:#24292E;">, </span><span style="color:#D73A49;">...</span><span style="color:#24292E;">)</span></span>
+<span class="line"><span style="color:#24292E;">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;">menu.</span><span style="color:#005CC5;">Reply</span><span style="color:#24292E;">(</span></span>
+<span class="line"><span style="color:#24292E;">	menu.</span><span style="color:#005CC5;">Row</span><span style="color:#24292E;">(btnHelp),</span></span>
+<span class="line"><span style="color:#24292E;">	menu.</span><span style="color:#005CC5;">Row</span><span style="color:#24292E;">(btnSettings),</span></span>
+<span class="line"><span style="color:#24292E;">)</span></span>
+<span class="line"><span style="color:#24292E;">selector.</span><span style="color:#005CC5;">Inline</span><span style="color:#24292E;">(</span></span>
+<span class="line"><span style="color:#24292E;">	selector.</span><span style="color:#005CC5;">Row</span><span style="color:#24292E;">(btnPrev, btnNext),</span></span>
+<span class="line"><span style="color:#24292E;">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;">b.</span><span style="color:#005CC5;">Handle</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;/start&quot;</span><span style="color:#24292E;">, </span><span style="color:#D73A49;">func</span><span style="color:#24292E;">(c </span><span style="color:#D73A49;">*</span><span style="color:#24292E;">tele.Context) </span><span style="color:#D73A49;">error</span><span style="color:#24292E;"> {</span></span>
+<span class="line"><span style="color:#24292E;">	_, err </span><span style="color:#D73A49;">:=</span><span style="color:#24292E;"> c.</span><span style="color:#005CC5;">Send</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;Hello!&quot;</span><span style="color:#24292E;">, menu)</span></span>
+<span class="line"><span style="color:#24292E;">    </span><span style="color:#D73A49;">return</span><span style="color:#24292E;"> err</span></span>
+<span class="line"><span style="color:#24292E;">})</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;">// On reply button pressed (message)</span></span>
+<span class="line"><span style="color:#24292E;">b.</span><span style="color:#005CC5;">Handle</span><span style="color:#24292E;">(</span><span style="color:#D73A49;">&amp;</span><span style="color:#24292E;">btnHelp, </span><span style="color:#D73A49;">func</span><span style="color:#24292E;">(c </span><span style="color:#D73A49;">*</span><span style="color:#24292E;">tele.Context) </span><span style="color:#D73A49;">error</span><span style="color:#24292E;"> {</span></span>
+<span class="line"><span style="color:#24292E;">	_, err </span><span style="color:#D73A49;">:=</span><span style="color:#24292E;"> c.</span><span style="color:#005CC5;">Edit</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;Here is some help: ...&quot;</span><span style="color:#24292E;">)</span></span>
+<span class="line"><span style="color:#24292E;">    </span><span style="color:#D73A49;">return</span><span style="color:#24292E;"> err</span></span>
+<span class="line"><span style="color:#24292E;">})</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;">// On inline button pressed (callback)</span></span>
+<span class="line"><span style="color:#24292E;">b.</span><span style="color:#005CC5;">Handle</span><span style="color:#24292E;">(</span><span style="color:#D73A49;">&amp;</span><span style="color:#24292E;">btnPrev, </span><span style="color:#D73A49;">func</span><span style="color:#24292E;">(c </span><span style="color:#D73A49;">*</span><span style="color:#24292E;">tele.Context) </span><span style="color:#D73A49;">error</span><span style="color:#24292E;"> {</span></span>
+<span class="line"><span style="color:#24292E;">	</span><span style="color:#D73A49;">return</span><span style="color:#24292E;"> c.</span><span style="color:#005CC5;">Respond</span><span style="color:#24292E;">()</span></span>
+<span class="line"><span style="color:#24292E;">})</span></span></code></pre></div><p>您可以对每种可能的按钮类型使用标记构造函数:</p><div class="language-go vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">go</span><pre class="shiki github-dark vp-code-dark"><code><span class="line"><span style="color:#E1E4E8;">r </span><span style="color:#F97583;">:=</span><span style="color:#E1E4E8;"> b.</span><span style="color:#79B8FF;">NewMarkup</span><span style="color:#E1E4E8;">()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;">// Reply buttons:</span></span>
+<span class="line"><span style="color:#E1E4E8;">r.</span><span style="color:#79B8FF;">Text</span><span style="color:#E1E4E8;">(</span><span style="color:#9ECBFF;">&quot;Hello!&quot;</span><span style="color:#E1E4E8;">)</span></span>
+<span class="line"><span style="color:#E1E4E8;">r.</span><span style="color:#79B8FF;">Contact</span><span style="color:#E1E4E8;">(</span><span style="color:#9ECBFF;">&quot;Send phone number&quot;</span><span style="color:#E1E4E8;">)</span></span>
+<span class="line"><span style="color:#E1E4E8;">r.</span><span style="color:#79B8FF;">Location</span><span style="color:#E1E4E8;">(</span><span style="color:#9ECBFF;">&quot;Send location&quot;</span><span style="color:#E1E4E8;">)</span></span>
+<span class="line"><span style="color:#E1E4E8;">r.</span><span style="color:#79B8FF;">Poll</span><span style="color:#E1E4E8;">(tele.PollQuiz)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;">// Inline buttons:</span></span>
+<span class="line"><span style="color:#E1E4E8;">r.</span><span style="color:#79B8FF;">Data</span><span style="color:#E1E4E8;">(</span><span style="color:#9ECBFF;">&quot;Show help&quot;</span><span style="color:#E1E4E8;">, </span><span style="color:#9ECBFF;">&quot;help&quot;</span><span style="color:#E1E4E8;">) </span><span style="color:#6A737D;">// data is optional</span></span>
+<span class="line"><span style="color:#E1E4E8;">r.</span><span style="color:#79B8FF;">Data</span><span style="color:#E1E4E8;">(</span><span style="color:#9ECBFF;">&quot;Delete item&quot;</span><span style="color:#E1E4E8;">, </span><span style="color:#9ECBFF;">&quot;delete&quot;</span><span style="color:#E1E4E8;">, item.ID)</span></span>
+<span class="line"><span style="color:#E1E4E8;">r.</span><span style="color:#79B8FF;">URL</span><span style="color:#E1E4E8;">(</span><span style="color:#9ECBFF;">&quot;Visit&quot;</span><span style="color:#E1E4E8;">, </span><span style="color:#9ECBFF;">&quot;https://google.com&quot;</span><span style="color:#E1E4E8;">)</span></span>
+<span class="line"><span style="color:#E1E4E8;">r.</span><span style="color:#79B8FF;">Query</span><span style="color:#E1E4E8;">(</span><span style="color:#9ECBFF;">&quot;Search&quot;</span><span style="color:#E1E4E8;">, query)</span></span>
+<span class="line"><span style="color:#E1E4E8;">r.</span><span style="color:#79B8FF;">QueryChat</span><span style="color:#E1E4E8;">(</span><span style="color:#9ECBFF;">&quot;Share&quot;</span><span style="color:#E1E4E8;">, query)</span></span>
+<span class="line"><span style="color:#E1E4E8;">r.</span><span style="color:#79B8FF;">Login</span><span style="color:#E1E4E8;">(</span><span style="color:#9ECBFF;">&quot;Login&quot;</span><span style="color:#E1E4E8;">, </span><span style="color:#F97583;">&amp;</span><span style="color:#E1E4E8;">tele.Login{</span><span style="color:#F97583;">...</span><span style="color:#E1E4E8;">})</span></span></code></pre><pre class="shiki github-light vp-code-light"><code><span class="line"><span style="color:#24292E;">r </span><span style="color:#D73A49;">:=</span><span style="color:#24292E;"> b.</span><span style="color:#005CC5;">NewMarkup</span><span style="color:#24292E;">()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;">// Reply buttons:</span></span>
+<span class="line"><span style="color:#24292E;">r.</span><span style="color:#005CC5;">Text</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;Hello!&quot;</span><span style="color:#24292E;">)</span></span>
+<span class="line"><span style="color:#24292E;">r.</span><span style="color:#005CC5;">Contact</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;Send phone number&quot;</span><span style="color:#24292E;">)</span></span>
+<span class="line"><span style="color:#24292E;">r.</span><span style="color:#005CC5;">Location</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;Send location&quot;</span><span style="color:#24292E;">)</span></span>
+<span class="line"><span style="color:#24292E;">r.</span><span style="color:#005CC5;">Poll</span><span style="color:#24292E;">(tele.PollQuiz)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;">// Inline buttons:</span></span>
+<span class="line"><span style="color:#24292E;">r.</span><span style="color:#005CC5;">Data</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;Show help&quot;</span><span style="color:#24292E;">, </span><span style="color:#032F62;">&quot;help&quot;</span><span style="color:#24292E;">) </span><span style="color:#6A737D;">// data is optional</span></span>
+<span class="line"><span style="color:#24292E;">r.</span><span style="color:#005CC5;">Data</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;Delete item&quot;</span><span style="color:#24292E;">, </span><span style="color:#032F62;">&quot;delete&quot;</span><span style="color:#24292E;">, item.ID)</span></span>
+<span class="line"><span style="color:#24292E;">r.</span><span style="color:#005CC5;">URL</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;Visit&quot;</span><span style="color:#24292E;">, </span><span style="color:#032F62;">&quot;https://google.com&quot;</span><span style="color:#24292E;">)</span></span>
+<span class="line"><span style="color:#24292E;">r.</span><span style="color:#005CC5;">Query</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;Search&quot;</span><span style="color:#24292E;">, query)</span></span>
+<span class="line"><span style="color:#24292E;">r.</span><span style="color:#005CC5;">QueryChat</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;Share&quot;</span><span style="color:#24292E;">, query)</span></span>
+<span class="line"><span style="color:#24292E;">r.</span><span style="color:#005CC5;">Login</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;Login&quot;</span><span style="color:#24292E;">, </span><span style="color:#D73A49;">&amp;</span><span style="color:#24292E;">tele.Login{</span><span style="color:#D73A49;">...</span><span style="color:#24292E;">})</span></span></code></pre></div>`,5),e=[o];function t(c,r,E,y,i,u){return a(),n("div",null,e)}const C=s(p,[["render",t]]);export{q as __pageData,C as default};

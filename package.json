@@ -1,0 +1,31 @@
+{
+  "name": "telebote",
+  "version": "1.0.0",
+  "description": "",
+  "author": "SRA",
+  "scripts": {
+    "serve": "vitepress serve docs",
+    "build": "vitepress build docs",
+    "dev": "vitepress dev docs"
+  },
+  "eslintConfig": {
+    "globals": {
+      "window": true
+    }
+  },
+  "main": "dist/index.ts",
+  "dependencies": {
+    "beercss": "^3.3.5",
+    "material-dynamic-colors": "^1.0.5",
+    "vue-class-component": "^8.0.0-0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-typescript": "5.0.8",
+    "@vue/cli-service": "^5.0.8",
+    "typescript": "^5.2.2",
+    "vitepress": "^1.0.0-rc.22",
+    "vitepress-plugin-search": "^1.0.4-alpha.20",
+    "vue": "^3.3.4"
+  },
+  "license": "MIT"
+}
