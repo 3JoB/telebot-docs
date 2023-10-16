@@ -6,7 +6,7 @@ layout: doc
 # 安裝
 
 <script lang="ts" setup>
-    import { data } from './install.data.ts'
+    import { data } from '../../install.data.ts'
 </script>
 
 ::: info Version Box
@@ -14,7 +14,7 @@ layout: doc
 
 發佈日期: {{data.created_at}}
 
-發佈说明: <a href='{{data.html_url}}'>{{data.html_url}}</a>
+發佈说明: <a :href="data.html_url">{{data.html_url}}</a>
 :::
 
 使用 Go Mod來安裝Telebot.
