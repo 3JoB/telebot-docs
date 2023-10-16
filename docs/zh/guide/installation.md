@@ -12,9 +12,9 @@ layout: doc
 ::: info Version Box
 最新版本: {{data.tag_name}}
 
-推送时间: {{data.created_at}}
+發佈日期: {{data.created_at}}
 
-推送说明: <a href='{{data.html_url}}'>{{data.html_url}}</a>
+發佈说明: <a href='{{data.html_url}}'>{{data.html_url}}</a>
 :::
 
 使用 Go Mod來安裝Telebot.
