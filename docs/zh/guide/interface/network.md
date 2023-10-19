@@ -9,14 +9,18 @@ layout: doc
 预置了 `resty-ilo` (resty分支，net/http包装器) 和 `fasthttp` 包装。
 
 ```go
-// It is forbidden to use multiple Netframe at the same time!
-// It will cause programs to appear Panic!
 type NetFrame interface {
 	// Set up Json handler
 	SetJsonHandle(v json.Json)
 
 	// Create a new request object
-	AcquireRequest() NetRequest
+	Acquire() (NetRequest, NetResponse)
+
+	ReleaseRequest(r NetRequest)
+
+	ReleaseResponse(r NetResponse)
+
+	Release(req NetRequest, resp NetResponse)
 }
 
 type NetRequest interface {
@@ -56,20 +60,12 @@ type NetRequest interface {
 	WriteJson(v any) error
 
 	// Execute request.
-	Do() (NetResponse, error)
+	Do() error
 
 	// Release() will clear the data in the current pointer.
 	// It is recommended to call it within the Release() method instead
 	// of calling it externally.
 	Reset()
-
-	// This method is generally not recommended because the built-in methods
-	// have automatically called Release() at the end of the Do() method,
-	// and only Response needs to be called manually.
-	//
-	// Release() will clear the data in the current pointer and put it back
-	// into the pool. After release, the corresponding pointer should not be used anymore.
-	Release()
 }
 
 type NetResponse interface {
@@ -94,13 +90,5 @@ type NetResponse interface {
 	// It is recommended to call it within the Release() method instead
 	// of calling it externally.
 	Reset()
-
-	// Release() will clear the data in the current pointer and put it back
-	// into the pool. After release, the corresponding pointer should not be used anymore.
-	Release()
 }
 ```
-
-net接口分为 `NetFrame`, `NetRequest`和`NetResponse`。
-
-NetFrame作为入口，管理全局

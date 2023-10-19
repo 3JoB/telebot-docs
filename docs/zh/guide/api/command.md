@@ -5,7 +5,7 @@ layout: doc
 
 # 命令
 
-命令處理命令時，Telebot 支持直接(`/command`) 和類組語法(`/command@botname`)，並且永遠不會向其他機器人傳遞消息，即使[隱私模式](https://core.telegram .org/bots#privacy-mode)關閉也是如此。
+命令處理命令時，Telebot 支持直接(`/command`) 和類組語法(`/command@botname`)，並且永遠不會向其他機器人傳遞消息，即使[隱私模式](https://core.telegram.org/bots#privacy-mode)關閉也是如此。
 
 為了簡化深度鏈接，Telebot 還提取有效負載:
 ```go
