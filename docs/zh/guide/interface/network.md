@@ -4,9 +4,9 @@ layout: doc
 ---
 
 # 網路
-网络接口为telebot提供网络操作包装。
+網路介面為telebot提供網路操作包裝。
 
-预置了 `resty-ilo` (resty分支，net/http包装器) 和 `fasthttp` 包装。
+預置了 `resty-ilo` 和 `fasthttp` 包裝。
 
 ```go
 type NetFrame interface {
