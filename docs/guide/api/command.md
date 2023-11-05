@@ -5,9 +5,9 @@ layout: doc
 
 # Commands
 
-When handling commands, Telebot supports both direct (`/command`) and group-like syntax (`/command@botname`) and will never deliver messages addressed to some other bot, even if [privacy mode](https://core.telegram.org/bots#privacy-mode) is off.
+When handling commands, Crare supports both direct (`/command`) and group-like syntax (`/command@botname`) and will never deliver messages addressed to some other bot, even if [privacy mode](https://core.telegram.org/bots#privacy-mode) is off.
 
-For simplified deep-linking, Telebot also extracts payload:
+For simplified deep-linking, Crare also extracts payload:
 
 ```go
 // Command: /start <PAYLOAD>
@@ -28,7 +28,7 @@ b.Handle("/tags", func(c *tele.Context) error {
 })
 ```
 
-TelebotE's new command processing directly processes strings instead of using regular expressions, which can greatly improve performance, and the payload can also return newline content.
+Crare's new command processing directly processes strings instead of using regular expressions, which can greatly improve performance, and the payload can also return newline content.
 
 ## Benchmark
 ```

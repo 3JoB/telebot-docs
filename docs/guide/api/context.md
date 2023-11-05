@@ -46,6 +46,6 @@ b.Handle(tele.OnQuery, func(c *tele.Context) error {
 })
 ```
 
-Telebot removed the old context interface and exposed it directly as a pointer. Also, please don't try to take the context outside, as it is pooled and will be recycled after each processing.
+Crare removed the old context interface and exposed it directly as a pointer. Also, please don't try to take the context outside, as it is pooled and will be recycled after each processing.
 
-You can find the available Handler events [here](https://pkg.go.dev/github.com/3JoB/telebot/v2#pkg-constants).
+You can find the available Handler events [here](https://pkg.go.dev/gopkg.in/crare#pkg-constants).

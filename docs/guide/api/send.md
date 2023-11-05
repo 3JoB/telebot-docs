@@ -47,4 +47,4 @@ b.Send(user, "text", &tele.ReplyMarkup{
 b.Send(user, "text", tele.Silent, tele.NoPreview)
 ```
 
-Full list of supported option-flags you can find [here](https://pkg.go.dev/github.com/3JoB/telebot/v2#Option).
+Full list of supported option-flags you can find [here](https://pkg.go.dev/gopkg.in/crare.v1#Option).

@@ -24,7 +24,7 @@ type Editable interface {
 }
 ```
 
-For example, `Message` type is Editable. Here is the implementation of `StoredMessage` type, provided by Telebot:
+For example, `Message` type is Editable. Here is the implementation of `StoredMessage` type, provided by Crare:
 
 ```go
 // StoredMessage is an example struct suitable for being

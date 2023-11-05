@@ -19,5 +19,5 @@ Release Notes: <a :href="data.html_url">{{data.html_url}}</a>
 
 ### v1
 ```bash-vue
-$ go get gopkg.in/crare@{{data.tag_name}}
+$ go get gopkg.in/crare.v1@{{data.tag_name}}
 ```
