@@ -19,6 +19,7 @@ function guide(): DefaultTheme.SidebarItem[] {
     },
     ...api(),
     ...interfaces(),
+    ...usage(),
     ...migration(),
   ]
 }
@@ -54,6 +55,19 @@ function interfaces(): DefaultTheme.SidebarItem[] {
         { text: 'Json', link: 'json' },
         { text: '網路', link: 'network' },
         { text: 'Poller', link: 'poller' },
+      ]
+    },
+  ]
+}
+
+function usage(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: '用法',
+      collapsed: true,
+      base: '/zh/guide/usage/',
+      items: [
+        { text: 'Webhook', link: 'webhook' },
       ]
     },
   ]

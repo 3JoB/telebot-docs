@@ -19,6 +19,7 @@ function guide(): DefaultTheme.SidebarItem[] {
         },
         ...api(),
         ...interfaces(),
+        ...usage(),
         ...migration(),
     ]
 }
@@ -58,6 +59,19 @@ function interfaces(): DefaultTheme.SidebarItem[] {
         },
     ]
 }
+
+function usage(): DefaultTheme.SidebarItem[] {
+    return [
+      {
+        text: 'использование',
+        collapsed: true,
+        base: '/ru/guide/usage/',
+        items: [
+          { text: 'Webhook', link: 'webhook' },
+        ]
+      },
+    ]
+  }
 
 function migration(): DefaultTheme.SidebarItem[] {
     return [
