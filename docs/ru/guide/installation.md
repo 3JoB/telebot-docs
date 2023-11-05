@@ -17,15 +17,7 @@ layout: doc
 Примечания к выпуску: <a :href="data.html_url">{{data.html_url}}</a>
 :::
 
-Используйте Go Mod для установки Telebot. 
-
-### v2
-```bash-vue
-$ go get github.com/3JoB/telebot/v2@{{data.tag_name}}
-```
-
 ### v1
-Версия 1 больше не поддерживается, поэтому, пожалуйста, перейдите на версию 2 как можно скорее.
-```bash
-$ go get github.com/3JoB/telebot
+```bash-vue
+$ go get gopkg.in/crare@{{data.tag_name}}
 ```

@@ -17,15 +17,7 @@ layout: doc
 發佈说明: <a :href="data.html_url">{{data.html_url}}</a>
 :::
 
-使用 Go Mod來安裝Telebot.
-
-### v2
-```bash-vue
-$ go get github.com/3JoB/telebot/v2@{{data.tag_name}}
-```
-
 ### v1
-v1已不再提供支持，所以請盡快遷移到v2.
-```bash
-$ go get github.com/3JoB/telebot
+```bash-vue
+$ go get gopkg.in/crare@{{data.tag_name}}
 ```
