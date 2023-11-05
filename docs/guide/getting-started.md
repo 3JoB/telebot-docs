@@ -4,7 +4,7 @@ layout: doc
 ---
 
 # Getting Started
-Let's take a look at the minimal Telebot setup:
+Let's take a look at the minimal Crare setup:
 ```go
 package main
 
@@ -13,22 +13,22 @@ import (
 	"os"
 	"time"
 
-	tele "github.com/3JoB/telebot/v2"
+	"gopkg.in/crare"
 )
 
 func main() {
-	pref := tele.Settings{
+	pref := crare.Settings{
 		Token:  os.Getenv("TOKEN"),
-		Poller: &tele.LongPoller{Timeout: 10 * time.Second},
+		Poller: &crare.LongPoller{Timeout: 10 * time.Second},
 	}
 
-	b, err := tele.NewBot(pref)
+	b, err := crare.NewBot(pref)
 	if err != nil {
 		log.Fatal(err)
 		return
 	}
 
-	b.Handle("/hello", func(c *tele.Context) error {
+	b.Handle("/hello", func(c *crare.Context) error {
 		c.Send("Hello!")
 		return nil
 	})
@@ -38,6 +38,6 @@ func main() {
 
 ```
 
-Simple, innit? Telebot's routing system takes care of delivering updates to their endpoints, so in order to get to handle any meaningful event, all you got to do is just plug your function into one of the Telebot-provided endpoints. You can find the full list [here](https://godoc.org/github.com/3JoB/telebot/v2#pkg-constants).
+Simple, innit? Crare's routing system takes care of delivering updates to their endpoints, so in order to get to handle any meaningful event, all you got to do is just plug your function into one of the Crare-provided endpoints. You can find the full list [here](https://godoc.org/gopkg.in/crare#pkg-constants).
 
 There are dozens of supported endpoints (see package consts). Let me know if you'd like to see some endpoint or endpoint ideas implemented. This system is completely extensible, so I can introduce them without breaking backwards compatibility.

@@ -3,11 +3,11 @@ layout: home
 
 # Hero section
 hero:
-  name: TelebotE 2
+  name: Crare
   text: Запустите Telegram-бот прямо сейчас
   image:
     src: /telebot.webp
-    alt: Telebot E logo
+    alt: Crare logo
   tagline: Не о чем волноваться, кончики пальцев летают, а код не вызывает затруднений.
   actions:
     - theme: brand
@@ -15,7 +15,7 @@ hero:
       link: /ru/guide/
     - theme: alt
       text: Посмотреть на GitHub
-      link: https://github.com/3JoB/telebot
+      link: https://github.com/go-crare/crare
 
 # Features section
 features:

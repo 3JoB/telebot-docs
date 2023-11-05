@@ -67,7 +67,8 @@ function migration(): DefaultTheme.SidebarItem[] {
       base: '/zh/guide/migration/',
       items: [
         { text: '從TeleBot遷移到TeleBotE', link: 't-to-te' },
-        { text: '從v1遷移到v2', link: 'v1-to-v2' }
+        { text: '從v1遷移到v2', link: 'v1-to-v2' },
+        { text: '遷移到Crare', link: 'crare'}
       ]
     },
   ]

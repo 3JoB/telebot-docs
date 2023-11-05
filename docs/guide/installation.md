@@ -17,13 +17,7 @@ Release Date: {{data.created_at}}
 Release Notes: <a :href="data.html_url">{{data.html_url}}</a>
 :::
 
-### v2
-```bash-vue
-$ go get github.com/3JoB/telebot/v2@{{data.tag_name}}
-```
-
 ### v1
-v1 is no longer supported, so please migrate to v2 as soon as possible.
-```bash
-$ go get github.com/3JoB/telebot
+```bash-vue
+$ go get gopkg.in/crare@{{data.tag_name}}
 ```

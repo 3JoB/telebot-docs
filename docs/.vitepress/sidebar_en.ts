@@ -67,7 +67,8 @@ function migration(): DefaultTheme.SidebarItem[] {
       base: '/guide/migration/',
       items: [
         { text: 'Migration from TeleBot to TeleBotE', link: 't-to-te' },
-        { text: 'Migration from v1 to v2', link: 'v1-to-v2' }
+        { text: 'Migration from v1 to v2', link: 'v1-to-v2' },
+        { text: 'Migration to crare', link: 'crare'}
       ]
     },
   ]

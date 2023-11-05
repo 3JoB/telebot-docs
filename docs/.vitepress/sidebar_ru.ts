@@ -67,7 +67,8 @@ function migration(): DefaultTheme.SidebarItem[] {
             base: '/ru/guide/migration/',
             items: [
                 { text: 'Переход с TeleBot на TeleBotE', link: 't-to-te' },
-                { text: 'Миграция с версии 1 на версию 2', link: 'v1-to-v2' }
+                { text: 'Миграция с версии 1 на версию 2', link: 'v1-to-v2' },
+                { text: 'Migration to crare', link: 'crare'}
             ]
         },
     ]

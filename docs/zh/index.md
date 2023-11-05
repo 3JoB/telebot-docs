@@ -3,11 +3,11 @@ layout: home
 
 # Hero section
 hero:
-  name: TelebotE 2
+  name: Crare
   text: 現在就啟動Telegram Bot
   image:
     src: /telebot.webp
-    alt: Telebot E logo
+    alt: Crare logo
   tagline: 心無旁鷚,指尖如飛,代碼自在.
   actions:
     - theme: brand
@@ -15,7 +15,7 @@ hero:
       link: /zh/guide/
     - theme: alt
       text: 在GitHub中查看
-      link: https://github.com/3JoB/telebot
+      link: https://github.com/go-crare/crare
 
 # Features section
 features:

@@ -4,7 +4,7 @@ import { sidebar_ru } from "./sidebar_ru";
 import { sidebar_zhtw } from "./sidebar_zhtw";
 
 export default {
-  title: "TelebotE",
+  title: "Crare",
   description: "A Telegram bot framework in Go",
   rewrites: {
     //'zh/index.md': 'zh.md',
@@ -60,7 +60,7 @@ export default {
         sidebar: sidebar_zhtw(),
         nav: [
           { text: "關於", link: "/about" },
-          { text: "發行說明", link: "https://github.com/3JoB/telebot/releases" },
+          { text: "發行說明", link: "https://github.com/go-crare/crare/releases" },
         ],
       },
     },
@@ -72,7 +72,7 @@ export default {
         sidebar: sidebar_ru(),
         nav: [
           { text: "около", link: "/about" },
-          { text: "Примечания к выпуску", link: "https://github.com/3JoB/telebot/releases" },
+          { text: "Примечания к выпуску", link: "https://github.com/go-crare/crare/releases" },
         ],
       },
     },
@@ -83,10 +83,10 @@ export default {
     siteTitle: false,
     nav: [
       { text: "About", link: "/about" },
-      { text: "Release", link: "https://github.com/3JoB/telebot/releases" },
+      { text: "Release", link: "https://github.com/go-crare/crare/releases" },
     ],
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/3JoB/telebot' },
+      { icon: 'github', link: 'https://github.com/go-crare/crare' },
     ],
     footer: {
       message: "Released under the MIT License.",
