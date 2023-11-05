@@ -24,7 +24,7 @@ type Editable interface {
 }
 ```
 
-For example, `Message` type is Editable. Here is the implementation of `StoredMessage` type, provided by Telebot:
+For example, `Message` type is Editable. Here is the implementation of `StoredMessage` type, provided by Crare:
 
 ```go
 // StoredMessage is an example struct suitable for being
@@ -45,7 +45,7 @@ Why bother at all? Well, it allows you to do things like this:
 
 ```go
 // just two integer columns in the database
-var msgs []tele.StoredMessage
+var msgs []crare.StoredMessage
 db.Find(&msgs) // gorm syntax
 
 for _, msg := range msgs {

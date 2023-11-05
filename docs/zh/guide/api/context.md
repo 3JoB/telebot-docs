@@ -12,7 +12,7 @@ layout: doc
 請不要隨意調用不該調用的情境，它有時含有大量的未初始化指針，這將會導致空指針異常。
 
 ```go
-b.Handle(tele.OnText, func(c *tele.Context) error {
+b.Handle(crare.OnText, func(c *crare.Context) error {
 	// All the text messages that weren't
 	// captured by existing handlers.
 
@@ -32,22 +32,22 @@ b.Handle(tele.OnText, func(c *tele.Context) error {
 	return c.Send(text)
 })
 
-b.Handle(tele.OnChannelPost, func(c *tele.Context) error {
+b.Handle(crare.OnChannelPost, func(c *crare.Context) error {
 	// Channel posts only.
 	msg := c.Message()
 })
 
-b.Handle(tele.OnPhoto, func(c *tele.Context) error {
+b.Handle(crare.OnPhoto, func(c *crare.Context) error {
 	// Photos only.
 	photo := c.Message().Photo
 })
 
-b.Handle(tele.OnQuery, func(c *tele.Context) error {
+b.Handle(crare.OnQuery, func(c *crare.Context) error {
 	// Incoming inline queries.
 	return c.Answer(...)
 })
 ```
 
-Telebot移除了舊的上下文接口並直接將指針暴露出來。另外，請不要嘗試將上下文帶到外部，因為它是池化的，在每個處理結束後都會被回收。
+Crare移除了舊的上下文接口並直接將指針暴露出來。另外，請不要嘗試將上下文帶到外部，因為它是池化的，在每個處理結束後都會被回收。
 
-您可以在[此處](https://pkg.go.dev/github.com/3JoB/telebot/v2#pkg-constants)找到可用的Handler事件。
+您可以在[此處](https://pkg.go.dev/gopkg.in/crare.v1#pkg-constants)找到可用的Handler事件。

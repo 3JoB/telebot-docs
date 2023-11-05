@@ -5,12 +5,12 @@ layout: doc
 
 # 中介軟體
 
-Telebot 有一種簡單且可識別的方式來設置中介軟體 - 可以訪問的鍊式函數，在處理程序執行之前調用 `Context`。
+Crare 有一種簡單且可識別的方式來設置中介軟體 - 可以訪問的鍊式函數，在處理程序執行之前調用 `Context`。
 
 導入 `middleware` 包以獲得一些基本的開箱即用的中介軟體實現:
 
 ```go
-import "github.com/3JoB/telebot/v2/middleware"
+import "gopkg.in/crare.v1/middleware"
 ```
 
 ```go
@@ -25,13 +25,13 @@ adminOnly.Handle("/ban", onBan)
 adminOnly.Handle("/kick", onKick)
 
 // Handler-scoped middleware:
-b.Handle(tele.OnText, onText, middleware.IgnoreVia())
+b.Handle(crare.OnText, onText, middleware.IgnoreVia())
 ```
 
 自定義中介軟體示例:
 ```go
 // AutoResponder automatically responds to every callback update.
-func AutoResponder(c *tele.Context) error {
+func AutoResponder(c *crare.Context) error {
 	if c.Callback() != nil {
 		defer c.Respond()
 	}
@@ -57,11 +57,11 @@ func AutoRespond() tele.MiddlewareFunc {
 }
 ```
 
-TelebotE:
+Crare:
 ```go
 // AutoRespond returns a middleware that automatically responds
 // to every callback.
-func AutoRespond(c *telebot.Context) error {
+func AutoRespond(c *crare.Context) error {
 		if c.Callback() != nil {
 			defer c.Respond()
 		}

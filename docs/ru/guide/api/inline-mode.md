@@ -5,18 +5,18 @@ layout: doc
 
 # Inline Mode
 
-So if you want to handle incoming inline queries you better plug the `tele.OnQuery` endpoint and then use the `Answer()` method to send a list of inline queries back. I think at the time of writing, Telebot supports all of the provided result types (but not the cached ones). This is what it looks like:
+So if you want to handle incoming inline queries you better plug the `crare.OnQuery` endpoint and then use the `Answer()` method to send a list of inline queries back. I think at the time of writing, Crare supports all of the provided result types (but not the cached ones). This is what it looks like:
 
 ```go
-b.Handle(tele.OnQuery, func(c *tele.Context) error {
+b.Handle(crare.OnQuery, func(c *crare.Context) error {
 	urls := []string{
 		"http://photo.jpg",
 		"http://photo2.jpg",
 	}
 
-	results := make(tele.Results, len(urls)) // []tele.Result
+	results := make(crare.Results, len(urls)) // []crare.Result
 	for i, url := range urls {
-		result := &tele.PhotoResult{
+		result := &crare.PhotoResult{
 			URL:      url,
 			ThumbURL: url, // required for photos
 		}
@@ -26,7 +26,7 @@ b.Handle(tele.OnQuery, func(c *tele.Context) error {
 		results[i].SetResultID(strconv.Itoa(i))
 	}
 
-	return c.Answer(&tele.QueryResponse{
+	return c.Answer(&crare.QueryResponse{
 		Results:   results,
 		CacheTime: 60, // a minute
 	})

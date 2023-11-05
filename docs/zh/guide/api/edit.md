@@ -24,7 +24,7 @@ type Editable interface {
 }
 ```
 
-例如，類型為可編輯。以下是Telebot提供的type實現:
+例如，類型為可編輯。以下是Crare提供的type實現:
 ```go
 // StoredMessage is an example struct suitable for being
 // stored in the database as-is or being embedded into
@@ -42,7 +42,7 @@ func (x StoredMessage) MessageSig() (int, int64) {
 何必呢?好吧，它允許您執行以下操作:
 ```go
 // just two integer columns in the database
-var msgs []tele.StoredMessage
+var msgs []crare.StoredMessage
 db.Find(&msgs) // gorm syntax
 
 for _, msg := range msgs {

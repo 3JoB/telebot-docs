@@ -5,13 +5,13 @@ layout: doc
 
 # 鍵盤
 
-Telebot支持兩種鍵盤Telegram提供：回復和內聯鍵盤。 任何按鈕也可以充當 `Handle()` 的端點。
+Crare支持兩種鍵盤Telegram提供：回復和內聯鍵盤。 任何按鈕也可以充當 `Handle()` 的端點。
 
 ```go
 var (
 	// Universal markup builders.
-	menu     = &tele.ReplyMarkup{ResizeKeyboard: true}
-	selector = &tele.ReplyMarkup{}
+	menu     = &crare.ReplyMarkup{ResizeKeyboard: true}
+	selector = &crare.ReplyMarkup{}
 
 	// Reply buttons.
 	btnHelp     = menu.Text("ℹ Help")
@@ -37,19 +37,19 @@ selector.Inline(
 	selector.Row(btnPrev, btnNext),
 )
 
-b.Handle("/start", func(c *tele.Context) error {
+b.Handle("/start", func(c *crare.Context) error {
 	_, err := c.Send("Hello!", menu)
     return err
 })
 
 // On reply button pressed (message)
-b.Handle(&btnHelp, func(c *tele.Context) error {
+b.Handle(&btnHelp, func(c *crare.Context) error {
 	_, err := c.Edit("Here is some help: ...")
     return err
 })
 
 // On inline button pressed (callback)
-b.Handle(&btnPrev, func(c *tele.Context) error {
+b.Handle(&btnPrev, func(c *crare.Context) error {
 	return c.Respond()
 })
 ```
@@ -63,7 +63,7 @@ r := b.NewMarkup()
 r.Text("Hello!")
 r.Contact("Send phone number")
 r.Location("Send location")
-r.Poll(tele.PollQuiz)
+r.Poll(crare.PollQuiz)
 
 // Inline buttons:
 r.Data("Show help", "help") // data is optional
@@ -71,5 +71,5 @@ r.Data("Delete item", "delete", item.ID)
 r.URL("Visit", "https://google.com")
 r.Query("Search", query)
 r.QueryChat("Share", query)
-r.Login("Login", &tele.Login{...})
+r.Login("Login", &crare.Login{...})
 ```

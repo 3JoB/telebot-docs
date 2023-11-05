@@ -4,7 +4,7 @@ layout: doc
 ---
 
 # 網路
-網路介面為telebot提供網路操作包裝。
+網路介面為Crare提供網路操作包裝。
 
 預置了 `resty-ilo` 和 `fasthttp` 包裝。
 

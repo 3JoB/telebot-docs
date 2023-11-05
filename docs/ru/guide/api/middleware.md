@@ -5,12 +5,12 @@ layout: doc
 
 # промежуточное программное обеспечение
 
-У Telebot есть простой и узнаваемый способ установить функцию промежуточного программного обеспечения, к которой можно получить, и вызовать `Context` перед обработкой программы.
+У Crare есть простой и узнаваемый способ установить функцию промежуточного программного обеспечения, к которой можно получить, и вызовать `Context` перед обработкой программы.
 
 Импортируйте пакет `middleware`, чтобы получить базовую реализацию распаковки промежуточного программного обеспечения:
 
 ```go
-import "github.com/3JoB/telebot/v2/middleware"
+import "gopkg.in/crare.v1/middleware"
 ```
 
 ```go
@@ -25,13 +25,13 @@ adminOnly.Handle("/ban", onBan)
 adminOnly.Handle("/kick", onKick)
 
 // Handler-scoped middleware:
-b.Handle(tele.OnText, onText, middleware.IgnoreVia())
+b.Handle(crare.OnText, onText, middleware.IgnoreVia())
 ```
 
 Пользовательский пример промежуточного программного обеспечения:
 ```go
 // AutoResponder automatically responds to every callback update.
-func AutoResponder(c *tele.Context) error {
+func AutoResponder(c *crare.Context) error {
 	if c.Callback() != nil {
 		defer c.Respond()
 	}
@@ -57,11 +57,11 @@ func AutoRespond() tele.MiddlewareFunc {
 }
 ```
 
-TelebotE:
+Crare:
 ```go
 // AutoRespond returns a middleware that automatically responds
 // to every callback.
-func AutoRespond(c *telebot.Context) error {
+func AutoRespond(c *crare.Context) error {
 		if c.Callback() != nil {
 			defer c.Respond()
 		}

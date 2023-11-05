@@ -5,7 +5,7 @@ page: doc
 
 # Sendable
 
-Send無疑是Telebot中最重要的方法。 `Send()` 接受一個收件人(可以是用戶,組或頻道)和一個可發送對象。除了Telebot提供的媒體類型(照片、音頻、視頻等)之外的其他類型都是可發送的。如果您創建自己的複合類型，並且它們滿足Sendable接口，Telebot將能夠將它們發送出去。
+Send無疑是Crare中最重要的方法。 `Send()` 接受一個收件人(可以是用戶,組或頻道)和一個可發送對象。除了Crare提供的媒體類型(照片、音頻、視頻等)之外的其他類型都是可發送的。如果您創建自己的複合類型，並且它們滿足Sendable接口，Crare將能夠將它們發送出去。
 
 ```go
 // Sendable is any object that can send itself.
@@ -20,10 +20,10 @@ type Sendable interface {
 
 當時唯一不適合`Send()`的類型是Album，這是有原因的。 `Album`是不久前添加的，因此出於向後兼容性的考慮，它們有點奇怪。事實上，可以發送，但從未收到。相反，Telegram 返回一條 `[]Message`，對應相冊中的每個媒體對象:
 ```go
-p := &tele.Photo{File: tele.FromDisk("chicken.jpg")}
-v := &tele.Video{File: tele.FromURL("http://video.mp4")}
+p := &crare.Photo{File: crare.FromDisk("chicken.jpg")}
+v := &crare.Video{File: crare.FromURL("http://video.mp4")}
 
-msgs, err := b.SendAlbum(user, tele.Album{p, v})
+msgs, err := b.SendAlbum(user, crare.Album{p, v})
 ```
 
 # SendOption
@@ -32,18 +32,18 @@ msgs, err := b.SendAlbum(user, tele.Album{p, v})
 
 ```go
 // regular send options
-b.Send(user, "text", &tele.SendOptions{
+b.Send(user, "text", &crare.SendOptions{
 	// ...
 })
 
 // ReplyMarkup is a part of SendOptions,
 // but often it's the only option you need
-b.Send(user, "text", &tele.ReplyMarkup{
+b.Send(user, "text", &crare.ReplyMarkup{
 	// ...
 })
 
 // flags: no notification && no web link preview
-b.Send(user, "text", tele.Silent, tele.NoPreview)
+b.Send(user, "text", crare.Silent, crare.NoPreview)
 ```
 
-您可以在[此處](https://pkg.go.dev/github.com/3JoB/telebot/v2#Option)找到支持的選項標誌的完整列表。
+您可以在[此處](https://pkg.go.dev/gopkg.in/crare.v1#Option)找到支持的選項標誌的完整列表。

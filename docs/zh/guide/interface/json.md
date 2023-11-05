@@ -15,7 +15,7 @@ Json是一个用于框架内Json处理的接口，在平时可以通过 `SetDefa
 ```go
 // The Json interface is used to customize the json handler.
 // Five wrappers are provided by default. For detailed documentation,
-// see: https://pkg.go.dev/github.com/3JoB/telebot/v2/pkg/json.
+// see: https://pkg.go.dev/gopkg.in/crare.v1/pkg/json.
 //
 // Some methods use the default sonnet because they are not under *Bot.
 type Json interface {

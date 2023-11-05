@@ -13,7 +13,7 @@ import (
 	"os"
 	"time"
 
-	"gopkg.in/crare"
+	"gopkg.in/crare.v1"
 )
 
 func main() {
@@ -38,6 +38,6 @@ func main() {
 
 ```
 
-Simple, innit? Crare's routing system takes care of delivering updates to their endpoints, so in order to get to handle any meaningful event, all you got to do is just plug your function into one of the Crare-provided endpoints. You can find the full list [here](https://godoc.org/gopkg.in/crare#pkg-constants).
+Simple, innit? Crare's routing system takes care of delivering updates to their endpoints, so in order to get to handle any meaningful event, all you got to do is just plug your function into one of the Crare-provided endpoints. You can find the full list [here](https://godoc.org/gopkg.in/crare.v1#pkg-constants).
 
 There are dozens of supported endpoints (see package consts). Let me know if you'd like to see some endpoint or endpoint ideas implemented. This system is completely extensible, so I can introduce them without breaking backwards compatibility.

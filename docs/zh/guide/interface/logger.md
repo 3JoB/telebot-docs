@@ -31,7 +31,7 @@ func main(){
 
 Or:
 ```go
-func K(c *telebot.Context) error {
+func K(c *crare.Context) error {
     c.b.Logger().Println("i like cookie")
     return nil
 }

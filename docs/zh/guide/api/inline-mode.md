@@ -5,18 +5,18 @@ layout: doc
 
 # 內聯模式
 
-因此，如果要處理傳入的內聯查詢，則更好地插入`tele.OnQuery`端點，然後使用`Answer()`方法將inline查詢列表發送回來。 我認為在撰寫本文時，Telebot支持所有提供的結果類型(但不能緩存)。 這就是它的樣子:
+因此，如果要處理傳入的內聯查詢，則更好地插入`crare.OnQuery`端點，然後使用`Answer()`方法將inline查詢列表發送回來。 我認為在撰寫本文時，Crare支持所有提供的結果類型(但不能緩存)。 這就是它的樣子:
 
 ```go
-b.Handle(tele.OnQuery, func(c *tele.Context) error {
+b.Handle(crare.OnQuery, func(c *crare.Context) error {
 	urls := []string{
 		"http://photo.jpg",
 		"http://photo2.jpg",
 	}
 
-	results := make(tele.Results, len(urls)) // []tele.Result
+	results := make(crare.Results, len(urls)) // []crare.Result
 	for i, url := range urls {
-		result := &tele.PhotoResult{
+		result := &crare.PhotoResult{
 			URL:      url,
 			ThumbURL: url, // required for photos
 		}
@@ -26,7 +26,7 @@ b.Handle(tele.OnQuery, func(c *tele.Context) error {
 		results[i].SetResultID(strconv.Itoa(i))
 	}
 
-	return c.Answer(&tele.QueryResponse{
+	return c.Answer(&crare.QueryResponse{
 		Results:   results,
 		CacheTime: 60, // a minute
 	})
