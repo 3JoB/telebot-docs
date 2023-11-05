@@ -11,7 +11,7 @@ For simplified deep-linking, Crare also extracts payload:
 
 ```go
 // Command: /start <PAYLOAD>
-b.Handle("/start", func(c *tele.Context) error {
+b.Handle("/start", func(c *crare.Context) error {
 	fmt.Println(c.Message().Payload) // <PAYLOAD>
 })
 ```
@@ -20,7 +20,7 @@ For multiple arguments use:
 
 ```go
 // Command: /tags <tag1> <tag2> <...>
-b.Handle("/tags", func(c *tele.Context) error {
+b.Handle("/tags", func(c *crare.Context) error {
 	tags := c.Args() // list of arguments splitted by a space
 	for _, tag := range tags {
 		// iterate through passed arguments

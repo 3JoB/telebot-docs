@@ -6,7 +6,7 @@ hero:
   name: Crare
   text: Launch Telegram Bot now.
   image:
-    src: /telebot.webp
+    src: /crare.webp
     alt: Crare logo
   tagline: Focused and swift, fingers dance on keys, coding flows free.
   actions:

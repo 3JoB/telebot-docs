@@ -4,7 +4,7 @@ layout: doc
 ---
 
 # 開始製作第一個機器人
-讓我們來看看最小的Telebot範例:
+讓我們來看看最小的Crare範例:
 ```go
 package main
 

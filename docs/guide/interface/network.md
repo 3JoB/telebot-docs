@@ -4,7 +4,7 @@ layout: doc
 ---
 
 # Network
-The network interface provides a network operation wrapper for telebot.
+The network interface provides a network operation wrapper for Crare.
 
 `resty-ilo` and `fasthttp` wrappers are prebuilt.
 

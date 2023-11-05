@@ -13,7 +13,7 @@ export default {
   },
   head: [
     [
-      'link', { rel: 'icon', href: '/telebot.ico' }
+      'link', { rel: 'icon', href: '/crare.ico' }
     ],
     [
       'link',
@@ -79,7 +79,7 @@ export default {
   },
 
   themeConfig: {
-    logo: "/telebot.ico",
+    logo: "/crare.ico",
     siteTitle: false,
     nav: [
       { text: "About", link: "/about" },

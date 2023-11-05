@@ -6,7 +6,7 @@ hero:
   name: Crare
   text: Запустите Telegram-бот прямо сейчас
   image:
-    src: /telebot.webp
+    src: /crare.webp
     alt: Crare logo
   tagline: Не о чем волноваться, кончики пальцев летают, а код не вызывает затруднений.
   actions:

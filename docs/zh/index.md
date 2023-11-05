@@ -6,7 +6,7 @@ hero:
   name: Crare
   text: 現在就啟動Telegram Bot
   image:
-    src: /telebot.webp
+    src: /crare.webp
     alt: Crare logo
   tagline: 心無旁鷚,指尖如飛,代碼自在.
   actions:

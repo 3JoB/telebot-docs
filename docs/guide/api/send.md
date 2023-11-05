@@ -5,7 +5,7 @@ page: doc
 
 # Sendable
 
-Send is undoubtedly the most important method in Telebot. `Send()` accepts a recipient (which can be a user, group or channel) and a sendable object. In addition to the media types provided by Telebot (photos, audio, videos, etc.), other types can be sent. If you create your own composite types, and they satisfy the Sendable interface, Telebot will be able to send them out.
+Send is undoubtedly the most important method in Crare. `Send()` accepts a recipient (which can be a user, group or channel) and a sendable object. In addition to the media types provided by Crare (photos, audio, videos, etc.), other types can be sent. If you create your own composite types, and they satisfy the Sendable interface, Crare will be able to send them out.
 
 ```go
 // Sendable is any object that can send itself.

@@ -19,13 +19,13 @@ type Logger interface {
 }
 ```
 
-It is very concise, because TeleBot usually does not need so many methods, so it only defines some of the most important methods, and then there are none. It can also be called through the Bot pointer.
+It is very concise, because Crare usually does not need so many methods, so it only defines some of the most important methods, and then there are none. It can also be called through the Bot pointer.
 
 Like: 
 ```go
 func main(){
     .......
-    b.Logger().Println("my telebot")
+    b.Logger().Println("my crare bot")
 }
 ```
 

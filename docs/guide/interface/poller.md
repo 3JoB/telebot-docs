@@ -4,7 +4,7 @@ layout: doc
 ---
 
 ## Poller
-Telebot doesn't really care how you provide it with incoming updates, as long
+Crare doesn't really care how you provide it with incoming updates, as long
 as you set it up with a Poller, or call ProcessUpdate for each update:
 
 ```go
