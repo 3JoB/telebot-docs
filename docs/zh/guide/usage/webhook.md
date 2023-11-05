@@ -5,11 +5,11 @@ layout: doc
 
 # 使用Webhook
 
-如果你还不知道Webhook，那么请看[这里](https://core.telegram.org/bots/api#getting-updates)。
+如果你還不知道Webhook，那麼請看[這裡](https://core.telegram.org/bots/api#getting-updates)。
 
-它是一种获取更新的方法，Crare默认采用一个长轮询来使用getUpdates方法，相关接口见[这里](../interface/poller.md)。
+它是一種獲取更新的方法，Crare默認採用一個長輪詢來使用getUpdates方法，相關接口見[這裡](../interface/poller.md)。
 
-来看最新的可用示例:
+來看最新的可用示例:
 ```go
 package main
 
@@ -46,11 +46,11 @@ func main() {
 }
 ```
 
-它运行良好，通常情况下，它应该隐藏在nginx或者CDN的后面，所以一般情况下都不需要在机器人中配置证书。
+它運行良好，通常情況下，它應該隱藏在nginx或者CDN的後面，所以一般情況下都不需要在機器人中配置證書。
 
-## Webhook安全
+## 安全
 
-如果你担心有未经授权的用户访问了Webhook并进行破坏，那么仅需要做如下即可仅让来自Telegram的流量进入
+如果你擔心有未經授權的用戶訪問了Webhook並進行破壞，那麼僅需要做如下即可僅讓來自Telegram的流量進入
 ```go
 b := crare.Settings{
 		Poller: &crare.Webhook{
@@ -61,9 +61,11 @@ b := crare.Settings{
 	}
 ```
 
-你需要在 `Verify` 的 `DB` 项中填入 maxmind asn 数据库文件的路径，如果你还没有，那么需要去[他们的网站](https://www.maxmind.com/)登录/注册并下载一个ASN数据库。注意，Verify仅接受.mmdb文件。
+你需要在`Verify` 的`DB` 項中填入maxmind asn 數據庫文件的路徑，如果你還沒有，那麼需要去[他們的網站](https://www.maxmind.com/)登錄/註冊並下載一個ASN數據庫。注意，Verify僅接受.mmdb文件。
+
+這是第二道防線，Crare會在一開始就校驗訪問者是否攜帶了正確的密鑰。
 
 ## 其他
-每次收到Webhook更新时，机器人都可以直接回复，并在回复中给出方法作为JSON有效负载。
+每次收到Webhook更新時，機器人都可以直接回复，並在回復中給出方法作為JSON有效負載。
 
-但是由于设计原因，我暂时不能做这个，它仍然是由`Raw`方法来传出的JSON，相关的文章在[这里](https://core.telegram.org/bots/faq#how-can-i-make-requests-in-response-to-updates)。
+但是由於設計原因，我暫時不能做這個，它仍然是由`Raw`方法來傳出的JSON，相關的文章在[這裡](https://core.telegram.org/bots/faq#how-can-i-make-requests-in-response-to-updates)。

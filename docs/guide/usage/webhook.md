@@ -63,6 +63,8 @@ b := crare.Settings{
 
 You need to fill in the path of the Maxmind Asn database file in the `Verify`'s` db` item. If you do not have it, you need to go to [their website](https://www.maxmind.com/) login/register and download an ASN database. Note that Verify only accepts .mmdb files.
 
+This is the second line of defense, and Crare will check whether the visitors carry the correct key at the beginning.
+
 ## Other
 Every time you receive the Webhook update, the robot can reply directly and give the method as a effective load in JSON in the reply.
 
