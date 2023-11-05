@@ -20,7 +20,6 @@ function guide(): DefaultTheme.SidebarItem[] {
         ...api(),
         ...interfaces(),
         ...usage(),
-        ...migration(),
     ]
 }
 
@@ -72,18 +71,3 @@ function usage(): DefaultTheme.SidebarItem[] {
       },
     ]
   }
-
-function migration(): DefaultTheme.SidebarItem[] {
-    return [
-        {
-            text: 'миграция',
-            collapsed: true,
-            base: '/ru/guide/migration/',
-            items: [
-                { text: 'Переход с TeleBot на TeleBotE', link: 't-to-te' },
-                { text: 'Миграция с версии 1 на версию 2', link: 'v1-to-v2' },
-                { text: 'Migration to crare', link: 'crare'}
-            ]
-        },
-    ]
-}

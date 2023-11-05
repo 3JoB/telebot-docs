@@ -20,7 +20,6 @@ function guide(): DefaultTheme.SidebarItem[] {
     ...api(),
     ...interfaces(),
     ...usage(),
-    ...migration(),
   ]
 }
 
@@ -68,21 +67,6 @@ function usage(): DefaultTheme.SidebarItem[] {
       base: '/guide/usage/',
       items: [
         { text: 'Webhook', link: 'webhook' },
-      ]
-    },
-  ]
-}
-
-function migration(): DefaultTheme.SidebarItem[] {
-  return [
-    {
-      text: 'Migration',
-      collapsed: true,
-      base: '/guide/migration/',
-      items: [
-        { text: 'Migration from TeleBot to TeleBotE', link: 't-to-te' },
-        { text: 'Migration from v1 to v2', link: 'v1-to-v2' },
-        { text: 'Migration to crare', link: 'crare'}
       ]
     },
   ]
